@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+	<meta charset="utf-8">
+<title>Форма</title>
+<body>
+	<style>
+		::placeholder {
+    color: rgba(255, 0, 0, 0.513);
+    font-style: italic;
+}
+
+INPUT,
+SELECT {
+    display: block;
+    margin: 5px;
+    padding: 3px 5px;
+}
+
+BUTTON {
+    margin: 10px;
+    padding: 5px 15px;
+}
+
+LABEL {
+    font-weight: bold;
+}
+	</style>
+<form #myForm='ngForm' (ngSubmit)='mySubmit(myForm.value)'>
+    <label for="inputName">Имя</label>
+    <input id="inputName" type="text" placeholder='Введите имя' name='name' ngModel>
+    <label for="inputEmail">Фамилия</label>
+    <input id="inputEmail" type="e-mail" placeholder='Введите фамилию' name='mail' ngModel>
+    <div ngModelGroup='pwd'>
+        <label for="inputPassword">Отчество</label>
+        <input type="password" id="inputPassword" placeholder="Введите Отчество" name='passwd' ngModel>
+        <label for="confirmPassword">Номер телефона</label>
+        <input type="password" id="confirmPassword" placeholder="Введите номер телефона" name='passwdConf' ngModel>
+    </div>
+    <label for="select">Ваш пол</label>
+    <select id="select" name='gender' ngModel="0">
+      <option ngValue='m'>Мужской</option>
+      <option ngValue='f'>Женский</option>
+      <option ngValue='o'>Другой</option>
+    </select>
+    <label for='agreement'>Подтведите, что Вы ознакомились с правилами пользования </label>
+    <input id='agreement' type="checkbox" name='agreement' ngModel>
+    <hr>
+    <button type="reset" class="btn btn-default">Очистить</button>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+
+</form>
+</body>
+</HTML>
